@@ -1,0 +1,146 @@
+{
+	"id": "c2af7d45-ed6b-434a-9727-bfe56c8e8c33",
+	"name": "StarWars API",
+	"timestamp": "2021-03-25T17:55:26.007Z",
+	"collection_id": "a3f13b82-989d-499e-894a-3182e61c42ee",
+	"folder_id": 0,
+	"environment_id": "0",
+	"totalPass": 13,
+	"totalFail": 0,
+	"results": [
+		{
+			"id": "2c15e3f4-4a38-47c8-80fe-814f58738427",
+			"name": "Test3",
+			"url": "https://swapi.dev/api/",
+			"time": 130,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Correct response format JSON": true,
+				"Check the we have all the declared fields in the response": true,
+				"Check that field value is not NULL": true,
+				"Check that field value is not empty": true,
+				"Check that field value has a specific value": true,
+				"Check status code of response is 200": true,
+				"Status message is OK": true,
+				"Response time is less than 1000ms": true,
+				"Check the header value": true,
+				"Check the header value is specific": true,
+				"Check the cookies exists": true,
+				"Check the cookies have value": true
+			},
+			"testPassFailCounts": {
+				"Correct response format JSON": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Check the we have all the declared fields in the response": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Check that field value is not NULL": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Check that field value is not empty": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Check that field value has a specific value": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Check status code of response is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Status message is OK": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response time is less than 1000ms": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Check the header value": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Check the header value is specific": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Check the cookies exists": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Check the cookies have value": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				130
+			],
+			"allTests": [
+				{
+					"Correct response format JSON": true,
+					"Check the we have all the declared fields in the response": true,
+					"Check that field value is not NULL": true,
+					"Check that field value is not empty": true,
+					"Check that field value has a specific value": true,
+					"Check status code of response is 200": true,
+					"Status message is OK": true,
+					"Response time is less than 1000ms": true,
+					"Check the header value": true,
+					"Check the header value is specific": true,
+					"Check the cookies exists": true,
+					"Check the cookies have value": true
+				}
+			]
+		},
+		{
+			"id": "059d7be5-582d-4594-b38a-571fc954d5ee",
+			"name": "Test4",
+			"url": "https://swapi.dev/api/",
+			"time": 52,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Body is correct.": true
+			},
+			"testPassFailCounts": {
+				"Body is correct.": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				52
+			],
+			"allTests": [
+				{
+					"Body is correct.": true
+				}
+			]
+		}
+	],
+	"count": 1,
+	"totalTime": 182,
+	"collection": {
+		"requests": [
+			{
+				"id": "2c15e3f4-4a38-47c8-80fe-814f58738427",
+				"method": "GET"
+			},
+			{
+				"id": "059d7be5-582d-4594-b38a-571fc954d5ee",
+				"method": "GET"
+			}
+		]
+	}
+}

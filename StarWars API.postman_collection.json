@@ -1,0 +1,312 @@
+{
+	"info": {
+		"_postman_id": "a3f13b82-989d-499e-894a-3182e61c42ee",
+		"name": "StarWars API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "New Request",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"// 1. Correct response format\r",
+							"pm.test(\"Correct response format JSON\", function () {\r",
+							"    pm.response.to.have.jsonBody()\r",
+							"});\r",
+							"\r",
+							"// 2. We have all the declared fields in the response\r",
+							"pm.test(\"Check the we have all the declared fields in the response\", function(){\r",
+							"    const jsonData = pm.response.json()\r",
+							"\r",
+							"    pm.expect(jsonData).to.have.property(\"people\");\r",
+							"    pm.expect(jsonData).to.have.property(\"planets\");\r",
+							"    pm.expect(jsonData).to.have.property(\"films\");\r",
+							"    pm.expect(jsonData).to.have.property(\"species\");\r",
+							"    pm.expect(jsonData).to.have.property(\"vehicles\");\r",
+							"    pm.expect(jsonData).to.have.property(\"starships\");\r",
+							"});\r",
+							"\r",
+							"// 3. Field value is not NULL\r",
+							"pm.test(\"Check that field value is not NULL\", function () {\r",
+							"    var jsonData = pm.response.json()\r",
+							"\r",
+							"    pm.expect(jsonData.people).not.equal(null);\r",
+							"    pm.expect(jsonData.planets).not.equal(null);\r",
+							"    pm.expect(jsonData.films).not.equal(null);\r",
+							"    pm.expect(jsonData.species).not.equal(null);\r",
+							"    pm.expect(jsonData.vehicles).not.equal(null);\r",
+							"    pm.expect(jsonData.starships).not.equal(null);\r",
+							"});\r",
+							"\r",
+							"// 4.  Field value is not empty\r",
+							"pm.test(\"Check that field value is not empty\", function () {\r",
+							"    var jsonData = pm.response.json()\r",
+							"\r",
+							"    pm.expect(jsonData.people).not.equal(\"\");\r",
+							"    pm.expect(jsonData.planets).not.equal(\"\");\r",
+							"    pm.expect(jsonData.films).not.equal(\"\");\r",
+							"    pm.expect(jsonData.species).not.equal(\"\");\r",
+							"    pm.expect(jsonData.vehicles).not.equal(\"\");\r",
+							"    pm.expect(jsonData.starships).not.equal(\"\");\r",
+							"});\r",
+							"\r",
+							"// 5. Current field corresonds to a specific value\r",
+							"pm.test(\"Check that field value has a specific value\", function () {\r",
+							"    var jsonData = pm.response.json()\r",
+							"\r",
+							"    pm.expect(jsonData.people).to.equal(\"http://swapi.dev/api/people/\");\r",
+							"    pm.expect(jsonData.planets).to.equal(\"http://swapi.dev/api/planets/\");\r",
+							"    pm.expect(jsonData.films).to.equal(\"http://swapi.dev/api/films/\");\r",
+							"    pm.expect(jsonData.species).to.equal(\"http://swapi.dev/api/species/\");\r",
+							"    pm.expect(jsonData.vehicles).to.equal(\"http://swapi.dev/api/vehicles/\");\r",
+							"    pm.expect(jsonData.starships).to.equal(\"http://swapi.dev/api/starships/\");\r",
+							"});\r",
+							"\r",
+							"// 6. Check status code of response is 200 (Ok)\r",
+							"pm.test(\"Check status code of response is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"// 7. Status message is Ok\r",
+							"pm.test(\"Status message is OK\", function () {\r",
+							"    pm.response.to.have.status(\"OK\");\r",
+							"});\r",
+							"\r",
+							"// 8. Response time is less than 1000ms\r",
+							"pm.test(\"Response time is less than 1000ms\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(1000)\r",
+							"    console.log(\"Response time: \" + pm.response.responseTime + \" ms\");     \r",
+							"});\r",
+							"\r",
+							"// 9. Check the header value in response\r",
+							"pm.test(\"Check the header value\", function () {\r",
+							"    pm.response.to.have.header(\"Content-Type\")\r",
+							"});\r",
+							"\r",
+							"// 10. Check the header value is specific \r",
+							"pm.test(\"Check the header value is specific\", function () {\r",
+							"    pm.response.to.be.header(\"Content-Type\",\"application/json\")\r",
+							"});\r",
+							"\r",
+							"// 11. Check the cookies exists\r",
+							"pm.test(\"Check the cookies exists\", function () {\r",
+							"    pm.cookies.has(\"__cfduid\")\r",
+							"});\r",
+							"\r",
+							"// 12. Check the cookies have value\r",
+							"pm.test(\"Check the cookies have value\", function () {\r",
+							"    try{\r",
+							"        var MY_COOKIE = pm.cookies.get(\"__cfduid\");\r",
+							"        console.log(\"My cookies: \" + MY_COOKIE);     \r",
+							"    } catch(e) {\r",
+							"        console.log(\"No cookies: \" + e);     \r",
+							"    }\r",
+							"    //pm.cookies.has(\"__cfduid\")\r",
+							"});\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://swapi.dev/api/",
+					"protocol": "https",
+					"host": [
+						"swapi",
+						"dev"
+					],
+					"path": [
+						"api",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Test3",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"// 1. Correct response format\r",
+							"pm.test(\"Correct response format JSON\", function () {\r",
+							"    pm.response.to.have.jsonBody()\r",
+							"});\r",
+							"\r",
+							"// 2. We have all the declared fields in the response\r",
+							"pm.test(\"Check the we have all the declared fields in the response\", function(){\r",
+							"    const jsonData = pm.response.json()\r",
+							"\r",
+							"    pm.expect(jsonData).to.have.property(\"people\");\r",
+							"    pm.expect(jsonData).to.have.property(\"planets\");\r",
+							"    pm.expect(jsonData).to.have.property(\"films\");\r",
+							"    pm.expect(jsonData).to.have.property(\"species\");\r",
+							"    pm.expect(jsonData).to.have.property(\"vehicles\");\r",
+							"    pm.expect(jsonData).to.have.property(\"starships\");\r",
+							"});\r",
+							"\r",
+							"// 3. Field value is not NULL\r",
+							"pm.test(\"Check that field value is not NULL\", function () {\r",
+							"    var jsonData = pm.response.json()\r",
+							"\r",
+							"    pm.expect(jsonData.people).not.equal(null);\r",
+							"    pm.expect(jsonData.planets).not.equal(null);\r",
+							"    pm.expect(jsonData.films).not.equal(null);\r",
+							"    pm.expect(jsonData.species).not.equal(null);\r",
+							"    pm.expect(jsonData.vehicles).not.equal(null);\r",
+							"    pm.expect(jsonData.starships).not.equal(null);\r",
+							"});\r",
+							"\r",
+							"// 4.  Field value is not empty\r",
+							"pm.test(\"Check that field value is not empty\", function () {\r",
+							"    var jsonData = pm.response.json()\r",
+							"\r",
+							"    pm.expect(jsonData.people).not.equal(\"\");\r",
+							"    pm.expect(jsonData.planets).not.equal(\"\");\r",
+							"    pm.expect(jsonData.films).not.equal(\"\");\r",
+							"    pm.expect(jsonData.species).not.equal(\"\");\r",
+							"    pm.expect(jsonData.vehicles).not.equal(\"\");\r",
+							"    pm.expect(jsonData.starships).not.equal(\"\");\r",
+							"});\r",
+							"\r",
+							"// 5. Current field corresonds to a specific value\r",
+							"pm.test(\"Check that field value has a specific value\", function () {\r",
+							"    var jsonData = pm.response.json()\r",
+							"\r",
+							"    pm.expect(jsonData.people).to.equal(\"http://swapi.dev/api/people/\");\r",
+							"    pm.expect(jsonData.planets).to.equal(\"http://swapi.dev/api/planets/\");\r",
+							"    pm.expect(jsonData.films).to.equal(\"http://swapi.dev/api/films/\");\r",
+							"    pm.expect(jsonData.species).to.equal(\"http://swapi.dev/api/species/\");\r",
+							"    pm.expect(jsonData.vehicles).to.equal(\"http://swapi.dev/api/vehicles/\");\r",
+							"    pm.expect(jsonData.starships).to.equal(\"http://swapi.dev/api/starships/\");\r",
+							"});\r",
+							"\r",
+							"// 6. Check status code of response is 200 (Ok)\r",
+							"pm.test(\"Check status code of response is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"// 7. Status message is Ok\r",
+							"pm.test(\"Status message is OK\", function () {\r",
+							"    pm.response.to.have.status(\"OK\");\r",
+							"});\r",
+							"\r",
+							"// 8. Response time is less than 1000ms\r",
+							"pm.test(\"Response time is less than 1000ms\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(1000)\r",
+							"    console.log(\"Response time: \" + pm.response.responseTime + \" ms\");     \r",
+							"});\r",
+							"\r",
+							"// 9. Check the header value in response\r",
+							"pm.test(\"Check the header value\", function () {\r",
+							"    pm.response.to.have.header(\"Content-Type\")\r",
+							"});\r",
+							"\r",
+							"// 10. Check the header value is specific \r",
+							"pm.test(\"Check the header value is specific\", function () {\r",
+							"    pm.response.to.be.header(\"Content-Type\",\"application/json\")\r",
+							"});\r",
+							"\r",
+							"// 11. Check the cookies exists\r",
+							"pm.test(\"Check the cookies exists\", function () {\r",
+							"    pm.cookies.has(\"__cfduid\")\r",
+							"});\r",
+							"\r",
+							"// 12. Check the cookies have value\r",
+							"pm.test(\"Check the cookies have value\", function () {\r",
+							"    try{\r",
+							"        var MY_COOKIE = pm.cookies.get(\"__cfduid\");\r",
+							"        console.log(\"My cookies: \" + MY_COOKIE);     \r",
+							"    } catch(e) {\r",
+							"        console.log(\"No cookies: \" + e);     \r",
+							"    }\r",
+							"    //pm.cookies.has(\"__cfduid\")\r",
+							"});\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://swapi.dev/api/",
+					"protocol": "https",
+					"host": [
+						"swapi",
+						"dev"
+					],
+					"path": [
+						"api",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Test4",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var data = JSON.parse(responseBody);\r",
+							"\r",
+							"var schema = {\r",
+							"    //specify the type of object\r",
+							"    \"type\": \"object\",\r",
+							"    //specify requires properties\r",
+							"    \"required\": [\"people\",\"planets\",\"films\",\"species\",\"vehicles\",\"starships\"],\r",
+							"    //describe the properties\r",
+							"    \"properties\":{\r",
+							"        \"people\": {\"type\":\"string\"},\r",
+							"        \"planets\": {\"type\":\"string\"},\r",
+							"        \"films\": {\"type\":\"string\"},\r",
+							"        \"species\": {\"type\":\"string\"},\r",
+							"        \"vehicles\": {\"type\":\"string\"},\r",
+							"        \"starships\": {\"type\":\"string\"},\r",
+							"    }\r",
+							"};\r",
+							"\r",
+							"pm.test('Body is correct.', function() {\r",
+							"    pm.expect(tv4.validate(data, schema)).to.be.true;\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://swapi.dev/api/",
+					"protocol": "https",
+					"host": [
+						"swapi",
+						"dev"
+					],
+					"path": [
+						"api",
+						""
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
