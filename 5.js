@@ -1,3 +1,4 @@
+# GET https://swapi.dev/api/people/1
 var data = JSON.parse(responseBody);
 
 var schema = {
